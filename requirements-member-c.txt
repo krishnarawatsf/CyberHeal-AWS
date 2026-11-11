@@ -1,0 +1,6 @@
+# Member C policy, models and deterministic tests.
+pydantic>=2.6,<3
+PyYAML>=6.0,<7
+pytest>=8.0,<10
+# AWS SDK for the *optional* live read-only preflight and EBS gateway.
+boto3>=1.34,<2

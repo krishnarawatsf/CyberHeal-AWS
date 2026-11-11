@@ -1,0 +1,9 @@
+# Copy to terraform.tfvars (ignored by Git). No API keys in this file.
+aws_account_id      = "REPLACE_12_DIGIT_ACCOUNT_ID"
+aws_region          = "ap-south-1"
+lab_tag             = "cyberheal-student-lab"
+test_instance_type  = "t3.small"
+# Set only when an isolated verification session is scheduled; incurs EC2 cost.
+enable_verifier     = false
+verifier_instance_type = "t3.micro"
+data_volume_size_gib = 8

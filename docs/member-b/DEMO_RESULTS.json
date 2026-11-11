@@ -1,0 +1,293 @@
+{
+  "mode": "OFFLINE MOCK \u2014 NO AWS CALLS",
+  "llm": "deterministic fallback; no model configured",
+  "scenarios": [
+    {
+      "scenario": "clean",
+      "incident_id": "5551f8fd-974e-45dd-b371-277f2c0736ee",
+      "investigation": {
+        "source": "deterministic_fallback",
+        "error": "local_llm_not_configured",
+        "report": {
+          "summary": "ransomware_like detected; confidence 0.92.",
+          "timeline": [
+            "2026-11-05T05:22:52.316269Z: trusted detector alert received"
+          ],
+          "likely_cause": "Requires operator investigation; automated attribution unavailable.",
+          "risk_explanation": "Advisory only. OPA and authenticated operator control actions."
+        }
+      },
+      "containment": {
+        "mock": true,
+        "resource": {
+          "vm_id": "i-EXAMPLE",
+          "volume_id": "vol-EXAMPLE"
+        },
+        "previous_sg_ids": [
+          "sg-MOCK-original"
+        ],
+        "quarantine_sg_ids": [
+          "sg-MOCK-quarantine"
+        ],
+        "rollback": "operator_review_required",
+        "opa_decision_ref": "jiQHPvlFJlerGMKlryJ3JpNX1fOOfey2Xus_9dlEKAw"
+      },
+      "result": {
+        "request": {
+          "incident_id": "5551f8fd-974e-45dd-b371-277f2c0736ee",
+          "resource": {
+            "vm_id": "i-EXAMPLE",
+            "volume_id": "vol-EXAMPLE"
+          },
+          "requested_window": {
+            "start": "2026-11-03T05:22:52.316269Z",
+            "end": "2026-11-05T05:07:52.316269Z"
+          },
+          "opa_decision_ref": "lqt_XpSJVriXb2V7XCVLNlyKYu57FBIjrz5AWdZhcC0"
+        },
+        "verification": {
+          "schema_version": "1.0",
+          "incident_id": "5551f8fd-974e-45dd-b371-277f2c0736ee",
+          "rcs": 100.0,
+          "factor_scores": {
+            "identity": 100.0,
+            "file_integrity": 100.0,
+            "network": 100.0,
+            "configuration": 100.0,
+            "health": 100.0
+          },
+          "decision": "SAFE",
+          "snapshot_id": "snap-EXAMPLE"
+        },
+        "alert_required": false,
+        "mock": true,
+        "release_requires_operator": true
+      },
+      "duplicate_request_reused_result": true
+    },
+    {
+      "scenario": "tampered",
+      "incident_id": "c33710e5-d412-4599-8431-bce1d4ea13d6",
+      "investigation": {
+        "source": "deterministic_fallback",
+        "error": "local_llm_not_configured",
+        "report": {
+          "summary": "ransomware_like detected; confidence 0.92.",
+          "timeline": [
+            "2026-11-05T05:22:52.316269Z: trusted detector alert received"
+          ],
+          "likely_cause": "Requires operator investigation; automated attribution unavailable.",
+          "risk_explanation": "Advisory only. OPA and authenticated operator control actions."
+        }
+      },
+      "containment": {
+        "mock": true,
+        "resource": {
+          "vm_id": "i-EXAMPLE",
+          "volume_id": "vol-EXAMPLE"
+        },
+        "previous_sg_ids": [
+          "sg-MOCK-original"
+        ],
+        "quarantine_sg_ids": [
+          "sg-MOCK-quarantine"
+        ],
+        "rollback": "operator_review_required",
+        "opa_decision_ref": "4fq4vdNEk6JDSxDDB2lSxFpeGAdbtG4QuclgqP3FaRU"
+      },
+      "result": {
+        "request": {
+          "incident_id": "c33710e5-d412-4599-8431-bce1d4ea13d6",
+          "resource": {
+            "vm_id": "i-EXAMPLE",
+            "volume_id": "vol-EXAMPLE"
+          },
+          "requested_window": {
+            "start": "2026-11-03T05:22:52.316269Z",
+            "end": "2026-11-05T05:07:52.316269Z"
+          },
+          "opa_decision_ref": "T5sBvBNnjqqEdNABSXFU4A9xAq8wES-xROONOMLRhfU"
+        },
+        "verification": {
+          "schema_version": "1.0",
+          "incident_id": "c33710e5-d412-4599-8431-bce1d4ea13d6",
+          "rcs": 75.0,
+          "factor_scores": {
+            "identity": 100.0,
+            "file_integrity": 0.0,
+            "network": 100.0,
+            "configuration": 100.0,
+            "health": 100.0
+          },
+          "decision": "REVIEW",
+          "snapshot_id": "snap-EXAMPLE"
+        },
+        "alert_required": true,
+        "mock": true,
+        "release_requires_operator": true
+      },
+      "duplicate_request_reused_result": true
+    },
+    {
+      "scenario": "health_failed",
+      "incident_id": "db0077cd-3ed9-474a-99ba-6e7fdf5d520a",
+      "investigation": {
+        "source": "deterministic_fallback",
+        "error": "local_llm_not_configured",
+        "report": {
+          "summary": "ransomware_like detected; confidence 0.92.",
+          "timeline": [
+            "2026-11-05T05:22:52.316269Z: trusted detector alert received"
+          ],
+          "likely_cause": "Requires operator investigation; automated attribution unavailable.",
+          "risk_explanation": "Advisory only. OPA and authenticated operator control actions."
+        }
+      },
+      "containment": {
+        "mock": true,
+        "resource": {
+          "vm_id": "i-EXAMPLE",
+          "volume_id": "vol-EXAMPLE"
+        },
+        "previous_sg_ids": [
+          "sg-MOCK-original"
+        ],
+        "quarantine_sg_ids": [
+          "sg-MOCK-quarantine"
+        ],
+        "rollback": "operator_review_required",
+        "opa_decision_ref": "4CJFo1SiTLeD4Ttki_S9Xj-wEtCzWJtIOti5xOVVAT8"
+      },
+      "result": {
+        "request": {
+          "incident_id": "db0077cd-3ed9-474a-99ba-6e7fdf5d520a",
+          "resource": {
+            "vm_id": "i-EXAMPLE",
+            "volume_id": "vol-EXAMPLE"
+          },
+          "requested_window": {
+            "start": "2026-11-03T05:22:52.316269Z",
+            "end": "2026-11-05T05:07:52.316269Z"
+          },
+          "opa_decision_ref": "pypFpTMxZyeHxgb_WU2dIVKmR_hJvq7KhuL8_86xvmI"
+        },
+        "verification": {
+          "schema_version": "1.0",
+          "incident_id": "db0077cd-3ed9-474a-99ba-6e7fdf5d520a",
+          "rcs": 85.0,
+          "factor_scores": {
+            "identity": 100.0,
+            "file_integrity": 100.0,
+            "network": 100.0,
+            "configuration": 100.0,
+            "health": 0.0
+          },
+          "decision": "REVIEW",
+          "snapshot_id": "snap-EXAMPLE"
+        },
+        "alert_required": true,
+        "mock": true,
+        "release_requires_operator": true
+      },
+      "duplicate_request_reused_result": true
+    },
+    {
+      "scenario": "no_snapshot",
+      "incident_id": "1cecc57c-a0cc-47cc-a999-f56212ceb5e9",
+      "investigation": {
+        "source": "deterministic_fallback",
+        "error": "local_llm_not_configured",
+        "report": {
+          "summary": "ransomware_like detected; confidence 0.92.",
+          "timeline": [
+            "2026-11-05T05:22:52.316269Z: trusted detector alert received"
+          ],
+          "likely_cause": "Requires operator investigation; automated attribution unavailable.",
+          "risk_explanation": "Advisory only. OPA and authenticated operator control actions."
+        }
+      },
+      "containment": {
+        "mock": true,
+        "resource": {
+          "vm_id": "i-EXAMPLE",
+          "volume_id": "vol-EXAMPLE"
+        },
+        "previous_sg_ids": [
+          "sg-MOCK-original"
+        ],
+        "quarantine_sg_ids": [
+          "sg-MOCK-quarantine"
+        ],
+        "rollback": "operator_review_required",
+        "opa_decision_ref": "Ndcdx-CjlRAShaibbJUCcrOxj7fJ1s5pN_L_IZQAS1A"
+      },
+      "result": {
+        "detail": "no verified clean recovery point; operator review required"
+      }
+    }
+  ],
+  "mock_clone_count": 3,
+  "monitoring": [
+    {
+      "verification": {
+        "schema_version": "1.0",
+        "incident_id": "5551f8fd-974e-45dd-b371-277f2c0736ee",
+        "rcs": 100.0,
+        "factor_scores": {
+          "identity": 100.0,
+          "file_integrity": 100.0,
+          "network": 100.0,
+          "configuration": 100.0,
+          "health": 100.0
+        },
+        "decision": "SAFE",
+        "snapshot_id": "snap-EXAMPLE"
+      },
+      "alert_required": false,
+      "mock": true,
+      "release_requires_operator": true
+    },
+    {
+      "verification": {
+        "schema_version": "1.0",
+        "incident_id": "c33710e5-d412-4599-8431-bce1d4ea13d6",
+        "rcs": 75.0,
+        "factor_scores": {
+          "identity": 100.0,
+          "file_integrity": 0.0,
+          "network": 100.0,
+          "configuration": 100.0,
+          "health": 100.0
+        },
+        "decision": "REVIEW",
+        "snapshot_id": "snap-EXAMPLE"
+      },
+      "alert_required": true,
+      "mock": true,
+      "release_requires_operator": true
+    },
+    {
+      "verification": {
+        "schema_version": "1.0",
+        "incident_id": "db0077cd-3ed9-474a-99ba-6e7fdf5d520a",
+        "rcs": 85.0,
+        "factor_scores": {
+          "identity": 100.0,
+          "file_integrity": 100.0,
+          "network": 100.0,
+          "configuration": 100.0,
+          "health": 0.0
+        },
+        "decision": "REVIEW",
+        "snapshot_id": "snap-EXAMPLE"
+      },
+      "alert_required": true,
+      "mock": true,
+      "release_requires_operator": true
+    }
+  ],
+  "unknown_action_policy_result": {
+    "allow": false,
+    "version": "cyberheal-b-0.1"
+  }
+}

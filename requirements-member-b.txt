@@ -1,0 +1,6 @@
+# Python >=3.11; install master requirements and requirements-member-c.txt too.
+fastapi==0.135.2
+uvicorn==0.42.0
+httpx==0.28.1
+pydantic==2.12.5
+pytest>=8,<9

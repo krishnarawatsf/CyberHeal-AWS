@@ -1,0 +1,11 @@
+{
+  "title": "CyberHeal Offline and Response Monitoring",
+  "schemaVersion": 39,
+  "panels": [
+    {"type": "timeseries", "title": "Incidents accepted", "targets": [{"expr": "increase(cyberheal_incidents_total[5m])"}]},
+    {"type": "timeseries", "title": "OPA decisions", "targets": [{"expr": "sum by (decision, action) (rate(cyberheal_opa_decisions_total[5m]))"}]},
+    {"type": "timeseries", "title": "Failed response jobs", "targets": [{"expr": "cyberheal_response_jobs{status=\"failed\"}"}]},
+    {"type": "timeseries", "title": "Recovery decisions", "targets": [{"expr": "sum by (decision, mock) (increase(cyberheal_recovery_verifications_total[5m]))"}]},
+    {"type": "stat", "title": "Mock recovery results (not AWS evidence)", "targets": [{"expr": "sum(cyberheal_recovery_verifications_total{mock=\"true\"})"}]}
+  ]
+}

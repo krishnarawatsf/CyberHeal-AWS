@@ -1,0 +1,17 @@
+# Already included in active root .gitignore (AWS version):
+.env
+.env.*
+.aws/
+*.tfstate*
+*.tfvars
+*.tfplan
+*.plan
+.terraform/
+private_registry/
+private_attestation*.json
+*.pem
+*.key
+*.db
+*.sqlite*
+# Never send AWS session tokens, keys, state, signed-attestation HMAC key,
+# or unredacted audit data through WhatsApp.

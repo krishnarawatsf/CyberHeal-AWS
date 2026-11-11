@@ -1,0 +1,24 @@
+---
+- name: Create dedicated simulation directory without deleting files
+  ansible.builtin.file:
+    path: /srv/cyberheal-sample
+    state: directory
+    owner: root
+    group: root
+    mode: "0750"
+
+# Creating a folder on the root filesystem is NOT evidence of an EBS mount.
+# Require the operator to format/mount the approved EBS device separately,
+# after checking its volume ID and filesystem state via Session Manager.
+- name: Confirm sample directory is an actual mounted filesystem
+  ansible.builtin.command:
+    argv:
+      - findmnt
+      - --mountpoint
+      - /srv/cyberheal-sample
+      - --noheadings
+      - --output
+      - SOURCE
+  register: cyberheal_data_mount
+  changed_when: false
+  failed_when: cyberheal_data_mount.rc != 0 or not cyberheal_data_mount.stdout.strip()

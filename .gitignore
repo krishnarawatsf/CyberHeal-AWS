@@ -1,0 +1,40 @@
+# Local Python outputs
+.venv/
+__pycache__/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.py[cod]
+models/*.joblib
+# Secrets, AWS profiles, incident stores and local metadata
+.env
+.env.*
+.aws/
+clouds.yaml
+*.pem
+*.key
+*.vault-password*
+*.sqlite
+*.sqlite3
+*.db
+private_registry/
+private_attestation*.json
+secrets/
+# Infrastructure state, plans and runtime assets
+*.tfstate
+*.tfstate.*
+*.tfvars
+*.tfvars.json
+*.tfplan
+*.plan
+.terraform/
+infra/ansible/inventory.ini
+*.retry
+*.log
+# Work-in-progress docs and local runtime
+.DS_Store
+__MACOSX/
+
+# Local tools/OPA binaries and temporary artifacts
+work/
+*.tfplan

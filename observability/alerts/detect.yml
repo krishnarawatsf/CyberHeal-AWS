@@ -1,0 +1,31 @@
+groups:
+  - name: cyberheal-response
+    rules:
+      - alert: CyberHealResponseActionFailed
+        expr: sum(cyberheal_response_jobs{status="failed"}) > 0
+        for: 1m
+        labels:
+          severity: critical
+        annotations:
+          summary: "A CyberHeal response action failed and requires operator review"
+      - alert: CyberHealNonSafeLiveRecovery
+        expr: increase(cyberheal_recovery_verifications_total{decision=~"REVIEW|UNSAFE",mock="false"}[5m]) > 0
+        for: 0m
+        labels:
+          severity: critical
+        annotations:
+          summary: "A live recovery verification is not SAFE"
+      - alert: CyberHealPolicyDenials
+        expr: increase(cyberheal_opa_decisions_total{decision="deny"}[5m]) > 0
+        for: 0m
+        labels:
+          severity: warning
+        annotations:
+          summary: "CyberHeal OPA denied a response action"
+      - alert: CyberHealMockRecoveryObserved
+        expr: increase(cyberheal_recovery_verifications_total{mock="true"}[5m]) > 0
+        for: 0m
+        labels:
+          severity: info
+        annotations:
+          summary: "A mock recovery result was recorded; this is not live AWS evidence"

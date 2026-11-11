@@ -1,0 +1,5 @@
+........................................................................ [ 48%]
+........................................................................ [ 97%]
+...                                                                      [100%]
+- generated xml file: C:\Users\manji\Documents\Codex\2026-11-05\this-is-my-project-and-i\work\combined-tests.xml -
+147 passed, 1 deselected in 50.98s

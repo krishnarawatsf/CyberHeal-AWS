@@ -1,0 +1,17 @@
+work\master\CyberHeal-AWS\respond\policies\cyberheal_test.rego:
+data.cyberheal_test.test_allow_quarantine: PASS (1.5349ms)
+data.cyberheal_test.test_allow_recovery: PASS (546.8µs)
+data.cyberheal_test.test_deny_empty: PASS (558.4µs)
+data.cyberheal_test.test_deny_action: PASS (1.7279ms)
+data.cyberheal_test.test_deny_account: PASS (548.3µs)
+data.cyberheal_test.test_deny_region: PASS (1.0107ms)
+data.cyberheal_test.test_deny_tag: PASS (0s)
+data.cyberheal_test.test_deny_instance: PASS (554µs)
+data.cyberheal_test.test_deny_volume: PASS (0s)
+data.cyberheal_test.test_deny_role: PASS (512.3µs)
+data.cyberheal_test.test_deny_actor: PASS (0s)
+data.cyberheal_test.test_deny_uuid: PASS (543.4µs)
+data.cyberheal_test.test_deny_extra: PASS (510.3µs)
+data.cyberheal_test.test_deny_missing: PASS (0s)
+--------------------------------------------------------------------------------
+PASS: 14/14

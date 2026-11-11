@@ -1,0 +1,1 @@
+Member C AWS v0.3 patch: Extract alongside a COPY of the CyberHeal-AWS master folder. Only merge files listed in the patch after comparing conflicts. Do NOT overwrite A source or B source. Current contracts use AWS EC2/EBS semantics. See docs/aws/06_WHATSAPP_MERGE_AND_RELEASE.md. Never copy AWS credentials/state or local .env files into the ZIP.

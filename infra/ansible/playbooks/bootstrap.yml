@@ -1,0 +1,7 @@
+---
+- name: Initialize dedicated sample-data directory on isolated test VMs
+  hosts: cyberheal_test_workers
+  become: true
+  gather_facts: false
+  roles:
+    - sample_data

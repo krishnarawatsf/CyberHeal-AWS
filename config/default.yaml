@@ -1,0 +1,6 @@
+sample_data_root: "/var/lib/cyberheal/sample-data"
+detector:
+  contamination: 0.1
+  random_state: 42
+  threshold_quantile: 0.95
+  minimum_confidence: 0.5

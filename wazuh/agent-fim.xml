@@ -1,0 +1,4 @@
+<!-- Include this block in the VM-1 Wazuh agent configuration. -->
+<syscheck>
+  <directories check_all="yes" realtime="yes" whodata="yes">/var/lib/cyberheal/sample-data</directories>
+</syscheck>

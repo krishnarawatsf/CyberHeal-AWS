@@ -1,0 +1,18 @@
+# Member C experimental recovery policy; review thresholds with A and B.
+# Not a probability of safety. SAFE additionally requires all checks to complete,
+# report pass, and satisfy their respective minimum factor scores.
+weights:
+  identity: 0.25
+  file_integrity: 0.25
+  network: 0.20
+  configuration: 0.15
+  health: 0.15
+thresholds:
+  safe: 85
+  review: 70
+minimum_factor_scores:
+  identity: 70
+  file_integrity: 70
+  network: 70
+  configuration: 70
+  health: 70
