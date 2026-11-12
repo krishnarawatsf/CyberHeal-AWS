@@ -1,11 +1,133 @@
 {
-  "title": "CyberHeal Offline and Response Monitoring",
-  "schemaVersion": 39,
+  "annotations": {
+    "list": []
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 1,
+  "id": null,
+  "links": [],
+  "liveNow": false,
   "panels": [
-    {"type": "timeseries", "title": "Incidents accepted", "targets": [{"expr": "increase(cyberheal_incidents_total[5m])"}]},
-    {"type": "timeseries", "title": "OPA decisions", "targets": [{"expr": "sum by (decision, action) (rate(cyberheal_opa_decisions_total[5m]))"}]},
-    {"type": "timeseries", "title": "Failed response jobs", "targets": [{"expr": "cyberheal_response_jobs{status=\"failed\"}"}]},
-    {"type": "timeseries", "title": "Recovery decisions", "targets": [{"expr": "sum by (decision, mock) (increase(cyberheal_recovery_verifications_total[5m]))"}]},
-    {"type": "stat", "title": "Mock recovery results (not AWS evidence)", "targets": [{"expr": "sum(cyberheal_recovery_verifications_total{mock=\"true\"})"}]}
-  ]
+    {
+      "collapsed": false,
+      "gridPos": { "h": 1, "w": 24, "x": 0, "y": 0 },
+      "id": 100,
+      "title": "Pipeline Key Performance Indicators",
+      "type": "row"
+    },
+    {
+      "id": 1,
+      "gridPos": { "h": 4, "w": 6, "x": 0, "y": 1 },
+      "title": "Stage 1: Ingested Incidents",
+      "type": "stat",
+      "targets": [{ "expr": "cyberheal_incidents_total", "legendFormat": "Incidents" }],
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "reduceOptions": { "calcs": ["lastNotNull"], "values": false }
+      }
+    },
+    {
+      "id": 2,
+      "gridPos": { "h": 4, "w": 6, "x": 6, "y": 1 },
+      "title": "Stage 2: Completed Investigations",
+      "type": "stat",
+      "targets": [{ "expr": "cyberheal_investigations_total", "legendFormat": "Investigations" }],
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "reduceOptions": { "calcs": ["lastNotNull"], "values": false }
+      }
+    },
+    {
+      "id": 3,
+      "gridPos": { "h": 4, "w": 6, "x": 12, "y": 1 },
+      "title": "Stage 3: OPA Policy Approvals",
+      "type": "stat",
+      "targets": [{ "expr": "sum(cyberheal_opa_decisions_total{decision=\"allow\"})", "legendFormat": "Allowed Actions" }],
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "reduceOptions": { "calcs": ["lastNotNull"], "values": false }
+      }
+    },
+    {
+      "id": 4,
+      "gridPos": { "h": 4, "w": 6, "x": 18, "y": 1 },
+      "title": "Stage 5: SAFE Verifications",
+      "type": "stat",
+      "targets": [{ "expr": "sum(cyberheal_recovery_verifications_total{decision=\"SAFE\"})", "legendFormat": "SAFE Verified" }],
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "reduceOptions": { "calcs": ["lastNotNull"], "values": false }
+      }
+    },
+    {
+      "collapsed": false,
+      "gridPos": { "h": 1, "w": 24, "x": 0, "y": 5 },
+      "id": 101,
+      "title": "Detection & Incident Activity",
+      "type": "row"
+    },
+    {
+      "id": 5,
+      "gridPos": { "h": 8, "w": 12, "x": 0, "y": 6 },
+      "title": "Incident & Investigation Rates",
+      "type": "timeseries",
+      "targets": [
+        { "expr": "rate(cyberheal_incidents_total[5m])", "legendFormat": "Incidents / sec" },
+        { "expr": "rate(cyberheal_investigations_total[5m])", "legendFormat": "Investigations / sec" }
+      ]
+    },
+    {
+      "id": 6,
+      "gridPos": { "h": 8, "w": 12, "x": 12, "y": 6 },
+      "title": "OPA Containment & Recovery Decisions",
+      "type": "timeseries",
+      "targets": [
+        { "expr": "sum by (decision, action) (rate(cyberheal_opa_decisions_total[5m]))", "legendFormat": "{{decision}} - {{action}}" }
+      ]
+    },
+    {
+      "collapsed": false,
+      "gridPos": { "h": 1, "w": 24, "x": 0, "y": 14 },
+      "id": 102,
+      "title": "Response Jobs & Verification Outcomes",
+      "type": "row"
+    },
+    {
+      "id": 7,
+      "gridPos": { "h": 8, "w": 12, "x": 0, "y": 15 },
+      "title": "Response Jobs by Action and State",
+      "type": "bargauge",
+      "targets": [
+        { "expr": "cyberheal_response_jobs", "legendFormat": "{{action}} ({{status}})" }
+      ],
+      "options": {
+        "displayMode": "gradient",
+        "orientation": "horizontal",
+        "reduceOptions": { "calcs": ["lastNotNull"], "values": false }
+      }
+    },
+    {
+      "id": 8,
+      "gridPos": { "h": 8, "w": 12, "x": 12, "y": 15 },
+      "title": "Recovery Verification Decisions (SAFE vs REVIEW vs UNSAFE)",
+      "type": "timeseries",
+      "targets": [
+        { "expr": "sum by (decision, mock) (increase(cyberheal_recovery_verifications_total[5m]))", "legendFormat": "Decision: {{decision}} (mock={{mock}})" }
+      ]
+    }
+  ],
+  "refresh": "5s",
+  "schemaVersion": 39,
+  "style": "dark",
+  "tags": ["cyberheal", "ransomware", "opa", "aws", "rcs"],
+  "time": {
+    "from": "now-30m",
+    "to": "now"
+  },
+  "title": "CyberHeal AI — Pipeline Observability Dashboard"
 }

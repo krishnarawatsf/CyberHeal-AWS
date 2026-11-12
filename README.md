@@ -24,6 +24,15 @@ bash scripts/run_offline_validation.sh
 4. **Recover and verify** — C uses the request contract, mock AWS adapter, snapshot registry and RCS checks.
 5. **Deploy later** — A+B+C review `tofu plan` and the AWS runbook before any approved live action.
 
+### Interactive Pipeline Dashboard
+
+To visualize and interact with all components of the pipeline working in real-time (Detect &rarr; Investigate &rarr; OPA Containment &rarr; EBS Restore &rarr; 5-Factor RCS Verification):
+
+```bash
+bash scripts/run_dashboard.sh
+```
+Open **[http://127.0.0.1:8080/](http://127.0.0.1:8080/)** in your browser. It provides one-click scenario testing (`clean`, `tampered`, `health_failed`, `no_snapshot`), an animated Recovery Confidence Score (RCS) gauge, real-time Security Group status, and live Prometheus metric feeds.
+
 The offline gate covers stages 1–4 with fake dependencies. It must not be described as AWS evidence. The B API exposes authenticated Prometheus metrics at `/metrics`; [`observability/prometheus.yml`](observability/prometheus.yml) is a local scrape example. Configure scrape authentication with a secret, not a committed dashboard value. Recovery verification requires explicit `observed` flags for identity, network, and health evidence instead of treating omitted flags as successful observations. The Terraform workload security group allows no ingress and limits egress to TCP 443 for SSM; public IPv4 and EC2/EBS charges still apply.
 
 ### C-only mock demo (no cloud or VS Code)
