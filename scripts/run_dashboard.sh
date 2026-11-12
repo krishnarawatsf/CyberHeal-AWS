@@ -18,3 +18,4 @@ fi
 
 export PYTHONPATH="$PWD/src"
 exec .venv/bin/python scripts/run_dashboard.py "$@"
+

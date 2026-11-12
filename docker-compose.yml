@@ -1,0 +1,28 @@
+services:
+  cyberheal:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: cyberheal-ai:latest
+    container_name: cyberheal-ai
+    ports:
+      - "8080:8080"
+    environment:
+      - CYBERHEAL_OPA_EXE=/usr/local/bin/opa
+      - PYTHONPATH=/app/src
+    volumes:
+      - ./work:/app/work
+    restart: unless-stopped
+
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: cyberheal-prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./observability/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+    depends_on:
+      - cyberheal
+    profiles:
+      - monitoring
+

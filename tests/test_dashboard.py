@@ -92,3 +92,4 @@ def test_dashboard_metrics_endpoint(dashboard_client: TestClient):
     assert response.status_code == 200
     assert "cyberheal_incidents_total" in response.text
     assert "cyberheal_opa_decisions_total" in response.text
+
